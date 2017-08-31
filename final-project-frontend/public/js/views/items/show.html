@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<div class="container">
+
+
+  <div class="row show-row">
+    <div class="col-lg-5 col-md-offset-1 image-show">
+      <img ng-src="{{ itemsShow.item.image_src }}">
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <div class="item">
+
+        <div class="description-show">
+          <h4><strong> {{ itemsShow.item.title }} </strong></h4>
+
+
+          <p><strong>Brand: </strong>{{ itemsShow.item.brand}}</p>
+          <p><strong>Type: </strong>{{ itemsShow.item.super_type}}</p>
+          <p><strong>Sub type: </strong>{{ itemsShow.item.sub_type}}</p>
+          <p><strong>Location: </strong>{{ itemsShow.item.location }}</p>
+
+          <p class="short-description-show"><strong>Specs: </strong>{{ itemsShow.item.short_description  }}</p>
+
+          <p><strong>Price: </strong>{{ itemsShow.item.price  }}</p>
+
+          <p>Created by: <strong><a ui-sref="profile({ id: itemsShow.item.user.id })">{{ itemsShow.item.user.username }}</a></strong></p>
+
+
+
+          <button ui-sref="itemsEdit({id: itemsShow.item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
+          <button ng-click="itemsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
+
+          <button ng-click="itemsShow.contact( main.currentUser.id, itemsShow.item.user.id)" ng-if="main.isAuthenticated() && main.currentUser.id !== itemsShow.item.user.id">Message the seller</button>
+          <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && !itemsShow.isWatching()&& main.currentUser.id !== itemsShow.item.user.id" >Watch</button>
+          <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && itemsShow.isWatching() && main.currentUser.id !== itemsShow.item.user.id" >Un-watch</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row show-row">
+
+    <div class="col-lg-10 col-lg-offset-1 show-text">
+      <h4>Item description</h4>
+      <p>{{ itemsShow.item.full_description  }}</p>
+    </div>
+  </div>
+
+
+</div>

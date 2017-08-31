@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  brand: MyString
+  super_type: MyString
+  sub_type: MyString
+  short_description: MyString
+  price: MyString
+  full_description: MyString
+  user: one
+
+two:
+  title: MyString
+  brand: MyString
+  super_type: MyString
+  sub_type: MyString
+  short_description: MyString
+  price: MyString
+  full_description: MyString
+  user: two

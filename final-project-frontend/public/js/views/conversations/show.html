@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<div class="container show-background" ng-class="{height: conversationsShow.conversation.messages.length < 5}" >
+
+  <div class="row">
+
+    <div class="show-messages-bar">
+
+        <div ng-repeat="conversation in conversationsShow.all" >
+
+
+          <a class="a-username-show" ui-sref="conversationsShow({id: conversation.id})"> {{conversation.sender.username}} & {{conversation.receiver.username}}</a>
+        </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="container">
+    <div class="row messages-show-row">
+
+      <ul>
+        <li ng-repeat="message in conversationsShow.conversation.messages"  class="row message-repeat" >
+          <div class="col-md-2 convo-image" ng-class="{receiver: main.currentUser.id === message.user.id}">
+            <img ng-src="{{ message.user.image_src }}" alt="profile.user.image_src" class="messageImage">
+          </div>
+
+          <div class="col-lg-10" ng-class="{receiver: main.currentUser.id === message.user.id}">
+            <h5><strong>{{ message.user.username }}</strong> : "{{ message.body }}"</h5>
+            <p class="message-date">{{message.message_time}}</p>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="send-message">
+    <div class="row search-bottom">
+
+      <div class="col-lg-6 col-lg-offset-3" >
+
+        <form ng-submit="conversationsShow.sendMessage()">
+          <h4>Send a Message</h4>
+          <div class="row">
+            <textarea type="text" name="body" ng-model="conversationsShow.message.body"></textarea>
+          </div>
+
+
+          <button ng-model-options="{updateOn : 'change blur'}">Send</button>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

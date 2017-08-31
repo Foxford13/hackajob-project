@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<section class=" height">
+
+
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 submit-form">
+      <form ng-submit="auth.register()">
+        <div class="field-row">
+          <label>Username</label>
+          <input type="text" ng-model="auth.user.username">
+        </div>
+
+        <div class="field-row">
+          <label>Email</label>
+          <input type="text" ng-model="auth.user.email">
+        </div>
+        <div class="field-row">
+          <label>First Name</label>
+          <input type="text" ng-model="auth.user.firstname">
+        </div>
+        <div class="field-row">
+          <label>Last Name</label>
+          <input type="text" ng-model="auth.user.lastname">
+        </div>
+
+        <div class="field-row">
+          <label>Password</label>
+          <input type="password" ng-model="auth.user.password">
+        </div>
+
+        <div class="field-row">
+          <label>Password Confirmation</label>
+          <input type="password" ng-model="auth.user.password_confirmation">
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input base64 type="file" name="image" id="image" ng-model="auth.user.base64" class="imgUpload col-12">
+          <img class="imgUploadImg" ng-src="{{ auth.user.base64 }}">
+        </div>
+
+        <button>Register</button>
+      </form>
+    </div>
+  </div>
+</section>
